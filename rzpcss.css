@@ -1,0 +1,499 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Adjust padding if needed */
+}
+
+.logo img {
+    width: 7%; /* You can adjust the size here */
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav {
+    flex-grow: 1; /* This makes sure the navigation takes the remaining space */
+    text-align: right; /* Align the navigation items to the right */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* Align list items to the right */
+}
+
+header nav ul li {
+    margin-left: 20px; /* Adjust spacing between navigation items */
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+#home p {
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+}
+
+header .logo img {
+    width: 50px; /* Set width of the image */
+    height: auto; /* Corrected the typo: height */
+}
+
+/* Hide the extra content by default */
+.hidden-content {
+    display: none;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    max-height: 0; /* Set max-height to 0 for hidden state */
+}
+
+/* Styles for the mobile navigation toggle button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Make toggle button visible on small screens */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;  /* Hide menu by default */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul.active {
+        display: block; /* Show menu when 'active' class is added */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+    }
+}
+
+#contact {
+    text-align: center;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 15px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #ff0000; /* Change to the hover color you want for icons */
+}
+
+.social-media i {
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover i {
+    transform: scale(1.2); /* Icon zoom effect on hover */
+}
+
+.social-media a[href*="instagram"]:hover {
+    color: #833AB4; /* Purple color for Instagram icon on hover */
+}
+
+/* Specific hover color (blue) for Gmail */
+.social-media a[href^="mailto"]:hover {
+    color: #4285f4; /* Google's blue color */
+}
+
+/* Specific hover color (green) for Phone */
+.social-media a[href^="tel"]:hover {
+    color: #34a853; /* Google's green for calls */
+}
+.social-media a[href*="manasi"]:hover {
+    color: #049960; 
+}
+
+#gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Modal for Gallery */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 90%; /* Constrain width of modal content */
+    max-height: 80%; /* Constrain height of modal content */
+    overflow-y: auto; /* Add vertical scrollbar */
+    padding: 20px;
+    background-color: #fff; /* Optional: white background for modal content */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+    max-width: 400px; /* Limit the maximum width */
+    max-height: 275px; /* Limit the maximum height */
+    width: auto; /* Automatically adjust width */
+    height: auto; /* Automatically adjust height */
+    object-fit: cover; /* Ensure images scale properly without distortion */
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Close button (X) */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it stays above modal content */
+}
+
+/* Optional: Scrollbar styling for better appearance */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.close:hover {
+    color: #ff0000;
+}
+
+ /* Achievements Section */
+ #achievements {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+#achievements h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+#achievements-list {
+    margin: 0;
+    padding: 0;
+}
+
+#achievements-list li {
+    list-style: none; /* Remove bullet points */
+    margin-bottom: 20px; /* Space between items */
+    padding: 15px; /* Add padding for content */
+    background: #fff; /* White background for each achievement */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center-align content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#achievements-list li img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Space below the image */
+    border-radius: 5px; /* Rounded image corners */
+}
+
+#achievements-list li h3 {
+    margin: 10px 0;
+    color: #555;
+}
+
+#achievements-list li p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Button Styling */
+#view-achievements-btn {
+    display: block;
+    margin: 0 auto 20px auto; /* Center the button */
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#view-achievements-btn:hover {
+    background-color: #555;
+}
+/* Styling for Achievement Images */
+#achievements-list li img {
+    max-width: 100%; /* Ensure responsiveness */
+    width: 500px; /* Increase image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Add a hover effect */
+}
+
+/* Optional: Add a hover effect for the images */
+#achievements-list li img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+#home {
+    background-color: #7b9e98;
+   
+}
+
+#about {
+    background-color: #b28ca9 ;
+}
+
+#team {
+    background-color:#e3ded2; 
+   
+}
+
+#achievements {
+    background-color: #3a4a64;
+   
+    
+}
+
+#gallery {
+    background-color: #7b9e98; 
+ 
+}
+
+#contact {
+    background-color: #ddc391; 
+   
+}
+
+#location {
+    background-color: #77a5c9
+}
+
+.faculty-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures it wraps on smaller screens */
+}
+
+.teacher {
+    flex: 1; /* Makes the teacher's section flexible */
+    max-width: 45%; /* Limiting max width for proper spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.teacher-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.teacher-details h4 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.teacher-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #070000;
+}
+
+.teacher-details a {
+    text-decoration: none;
+    color: #000203;
+}
+.principal-video {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.principal-video h4 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.shikshakvarga-heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px; /* Space above the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* You can customize this color */
+}
+.adhikarvarga-heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px; /* Space above the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* You can customize this color */
+}
+.Teacher1Photo {
+    width: 250px; /* Increase the size as needed */
+    height: auto; 
+}
+.administrator-designation {
+    font-style: italic; /* Italicize the designation */
+    color: #555; /* You can customize this color */
+}
+/* Heading for Management Committee Section */
+.vyavasthapansamiti-heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Style the unordered list */
+.vyavasthapansamiti-list {
+    list-style-type: disc; /* Display bullet points */
+    padding-left: 20px; /* Adds some space before the bullet points */
+    margin: 0;
+    text-align: center;
+}
+
+/* Style for each list item */
+.vyavasthapansamiti {
+    margin-bottom: 10px; /* Space between each member */
+    font-size: 18px; /* You can adjust this font size */
+}
+
+.vyavasthapansamiti h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling the name and designation */
+.vyavasthapansamiti-name {
+    font-weight: bold;
+    margin-right: 10px; /* Space between name and designation */
+}
+
+.vyavasthapansamiti-designation {
+    font-style: italic; /* Italicize the designation */
+    color: #555; /* You can customize this color */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .vyavasthapansamiti-heading {
+        font-size: 20px; /* Slightly smaller heading on mobile */
+    }
+
+    .vyavasthapansamiti-name,
+    .vyavasthapansamiti-designation {
+        font-size: 16px; /* Adjust font size for mobile */
+    }
+}
+#curriculum {
+    text-align: center;
+    background-color: #ddc391; 
+   
+}
